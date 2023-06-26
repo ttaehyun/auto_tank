@@ -9,7 +9,7 @@ GPIO.setwarnings(False)
 Forward = 0
 Backward = 1
 Left = 2
- Right = 3
+Right = 3
 Stop = 4
 #모터 채널
 CH1 = 0
