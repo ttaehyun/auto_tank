@@ -7,13 +7,14 @@ GPIO.setwarnings(False)
 
 # 전후 좌우 모터상태
 Forward = 0
-Backward = 1
+Reverse = 1
 Stop = 2
 #모터 채널
 CH1 = 0
 CH2 = 1
 CH3 = 2
 CH4 = 3
+CH5 = 4
 #PIN 입출력 설정
 OUTPUT = 1
 INPUT = 0
@@ -59,7 +60,7 @@ def setMotorControl(pwm, INA, INB, speed, stat):
         if stat == Forward:
                 GPIO.output(INA, LOW)
                 GPIO.output(INB, HIGH)
-        elif stat == Backward:
+        elif stat == Reverse:
                 GPIO.output(INA, HIGH)
                 GPIO.output(INB, LOW)
         elif stat == Stop:
@@ -72,7 +73,10 @@ def setMotor(ch, speed, stat):
                setMotorControl(Right_track, IN3, IN4, speed, stat)
         elif ch == CH3:
                setMotorControl(turret_rotation, IN5, IN6, speed, stat)
-
+        elif ch == CH4:
+                setMotorControl(gun_tilt, IN7, IN8, speed, stat)
+        elif ch == CH5:
+                setMotorControl(gun_reload, IN9, IN10, speed, stat)
 #왼쪽 궤도
 Left_track = setPinConfig( ENA, IN1, IN2)
 #오른쪽 궤도
@@ -93,14 +97,24 @@ def keymap(screen):
                                 setMotor(CH1, 100, Forward)
                                 setMotor(CH2, 100, Forward)
                         elif key == curses.KEY_DOWN:
-                                setMotor(CH1, 100, Backward)
-                                setMotor(CH2, 100, Backward)
+                                setMotor(CH1, 100, Reverse)
+                                setMotor(CH2, 100, Reverse)
                         elif key == curses.KEY_LEFT:
                                 setMotor(CH1, 50, Forward)
-                                setMotor(CH2, 50, Backward)
+                                setMotor(CH2, 50, Reverse)
                         elif key == curses.KEY_RIGHT:
-                                setMotor(CH1, 50, Backward)
+                                setMotor(CH1, 50, Reverse)
                                 setMotor(CH2, 50, Forward)
+                        elif key == 'w':
+                                setMotor(CH4, 50, Forward)
+                        elif key == 's':
+                                setMotor(CH4, 50, Reverse)
+                        elif key == 'a':
+                                setMotor(CH3, 50, Forward)
+                        elif key == 'd':
+                                setMotor(CH3, 50, Reverse)
+                        elif key == 'r':
+                                setMotor(CH5, 50, Forward)
                         else:
                                 setMotor(CH1, 0, Stop)
                                 setMotor(CH2, 0, Stop)
