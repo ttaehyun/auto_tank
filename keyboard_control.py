@@ -8,13 +8,12 @@ GPIO.setwarnings(False)
 # 전후 좌우 모터상태
 Forward = 0
 Backward = 1
-Left = 2 
-Right = 3
-Stop = 4
+Stop = 2
 #모터 채널
 CH1 = 0
 CH2 = 1
-
+CH3 = 2
+CH4 = 3
 #PIN 입출력 설정
 OUTPUT = 1
 INPUT = 0
@@ -22,7 +21,7 @@ INPUT = 0
 HIGH = 1
 LOW = 0
 
-#PWM PIN
+#PWM PIN (궤도)
 ENA = 32
 ENB = 33
 #GPIO PIN
@@ -30,6 +29,21 @@ IN1 = 38
 IN2 = 36
 IN3 = 37
 IN4 = 35
+
+#PWM PIN (포탑, 주포)
+ENC = 24 #포탑
+END = 19 #주포
+#GPIO PIN
+IN5 = 16 #포탑
+IN6 = 22 #포탑
+IN7 = 21 #주포
+IN8 = 23 #주포
+
+#PWM PIN (장전)
+ENE = 8
+#GPIO PIN
+IN9 = 10
+IN10 = 12
 
 def setPinConfig(EN, INA, INB):
         GPIO.setup(EN, GPIO.OUT)
@@ -53,12 +67,22 @@ def setMotorControl(pwm, INA, INB, speed, stat):
                 GPIO.output(INB, LOW)
 def setMotor(ch, speed, stat):
         if ch == CH1:
-                setMotorControl(pwmA, IN1, IN2, speed, stat)
-        else: setMotorControl(pwmB, IN3, IN4, speed, stat)
+               setMotorControl(Left_track, IN1, IN2, speed, stat)
+        elif ch == CH2: 
+               setMotorControl(Right_track, IN3, IN4, speed, stat)
+        elif ch == CH3:
+               setMotorControl(turret_rotation, IN5, IN6, speed, stat)
 
-pwmA = setPinConfig(ENA, IN1, IN2)
-pwmB = setPinConfig(ENB, IN3, IN4)
-
+#왼쪽 궤도
+Left_track = setPinConfig( ENA, IN1, IN2)
+#오른쪽 궤도
+Right_track = setPinConfig(ENB, IN3, IN4)
+#포탑 회전
+turret_rotation = setPinConfig(ENC, IN5, IN6)
+#주포
+gun_tilt = setPinConfig(END, IN7, IN8)
+#장전
+gun_reload = setPinConfig(ENE, IN9, IN10)
 def keymap(screen):
         screen.clear()
         screen.refresh()
@@ -86,4 +110,4 @@ def keymap(screen):
 
 curses.wrapper(keymap)
 
-GPIO.cleanup()
+GPIO.cleanup() 
