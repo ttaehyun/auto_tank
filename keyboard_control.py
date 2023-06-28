@@ -41,7 +41,7 @@ IN7 = 21 #주포
 IN8 = 23 #주포
 
 #PWM PIN (장전)
-ENE = 8
+ENE = 3
 #GPIO PIN
 IN9 = 10
 IN10 = 12
