@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import ASUS.GPIO as GPIO
+import time
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
@@ -23,8 +24,8 @@ class Gpio_setting:
         pwm.start(0)
         return pwm
 class Motor(Gpio_setting):
-      def __init__(self, Ina, Inb):
-          super().__init__( Ina, Inb)
+      def __init__(self,En, Ina, Inb):
+          super().__init__(En, Ina, Inb)
           self.speed = 0
           self.stat = 0
 
@@ -39,5 +40,12 @@ class Motor(Gpio_setting):
           elif stat == Stop:
                GPIO.output(self.Ina, LOW)
                GPIO.output(self.Inb, LOW)
-             
+
+Left_track = Motor(32, 38, 26)
+Right_track = Motor(33, 37, 35)
+turret_rotation = Motor(24, 16, 22)
+gun_tilt = Motor(19, 21, 23)
+gun_reload = Motor(27, 29, 31)
+
+
 GPIO.cleanup()
