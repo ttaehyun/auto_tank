@@ -41,10 +41,10 @@ IN7 = 21 #주포
 IN8 = 23 #주포
 
 #PWM PIN (장전)
-ENE = 3
+ENE = 27
 #GPIO PIN
-IN9 = 10
-IN10 = 12
+IN9 = 29
+IN10 = 31
 
 def setPinConfig(EN, INA, INB):
         GPIO.setup(EN, GPIO.OUT)
