@@ -105,15 +105,15 @@ def keymap(screen):
                         elif key == curses.KEY_RIGHT:
                                 setMotor(CH1, 50, Reverse)
                                 setMotor(CH2, 50, Forward)
-                        elif key == 'w':
+                        elif key == curses.KEY_HOME:
                                 setMotor(CH4, 50, Forward)
-                        elif key == 's':
+                        elif key == curses.KEY_END:
                                 setMotor(CH4, 50, Reverse)
-                        elif key == 'a':
+                        elif key == curses.KEY_F9:
                                 setMotor(CH3, 50, Forward)
-                        elif key == 'd':
+                        elif key == curses.KEY_F10:
                                 setMotor(CH3, 50, Reverse)
-                        elif key == 'r':
+                        elif key == curses.KEY_F11:
                                 setMotor(CH5, 50, Forward)
                         else:
                                 setMotor(CH1, 0, Stop)
