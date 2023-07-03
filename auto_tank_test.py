@@ -44,11 +44,11 @@ turret_rotation = Motor(24, 16, 22)
 gun_tilt = Motor(19, 21, 23)
 gun_reload = Motor(27, 29, 31)
 
-while True:
-    try:
+try:
+    while True:
         Left_track.setMotor(50, Forward)
         Right_track.setMotor(50, Forward)
-    except KeyboardInterrupt:
-        print("\n ctrl c 입력")
-        
+except KeyboardInterrupt:
+    print("\n ctrl c 입력")
+
 GPIO.cleanup()
