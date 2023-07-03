@@ -44,7 +44,10 @@ turret_rotation = Motor(24, 16, 22)
 gun_tilt = Motor(19, 21, 23)
 gun_reload = Motor(27, 29, 31)
 
-Left_track.setMotor(50, Forward)
-Right_track.setMotor(50, Forward)
+i = 0
+while i<1000:
 
+    Left_track.setMotor(50, Forward)
+    Right_track.setMotor(50, Forward)
+    i += 1
 GPIO.cleanup()
