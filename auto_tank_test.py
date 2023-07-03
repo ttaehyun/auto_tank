@@ -23,6 +23,8 @@ class Motor():
     def __init__(self,En, Ina, Inb):
         self.speed = 0
         self.stat = 0
+        self.Ina = Ina
+        self.Inb = Inb
         self.pwm = setPinConfig(En, Ina, Inb)
     def setMotor(self, speed, elec_stat):
         self.pwm.ChangeDutyCycle(speed)
