@@ -1,47 +1,60 @@
 # -*- coding: utf-8 -*-
 import ASUS.GPIO as GPIO
-import curses
+import time
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-# 전후 좌우 모터상태
 Forward = 0
 Backward = 1
+<<<<<<< HEAD
 Left = 2 
 Right = 3
 Stop = 4
 #모터 채널
 CH1 = 0
 CH2 = 1
+=======
+Stop = 2
+>>>>>>> add_class
 
-#PIN 입출력 설정
-OUTPUT = 1
-INPUT = 0
-#PIN 설정
 HIGH = 1
 LOW = 0
 
-#PWM PIN
-ENA = 32
-ENB = 33
-#GPIO PIN
-IN1 = 38
-IN2 = 36
-IN3 = 37
-IN4 = 35
+def setPinConfig(en, ina, inb):
+    GPIO.setup(en, GPIO.OUT)
+    GPIO.setup(ina, GPIO.OUT)
+    GPIO.setup(inb, GPIO.OUT)
+    pwm = GPIO.PWM(en, 100)
+    pwm.start(0)
+    return pwm
+class Motor():
+    def __init__(self,En, Ina, Inb):
+        self.speed = 0
+        self.stat = 0
+        self.pwm = setPinConfig(En, Ina, Inb)
+    def setMotor(self, speed, elec_stat):
+        self.pwm.ChangeDutyCycle(speed)
+        if elec_stat == Forward:
+            GPIO.output(self.Ina, LOW)
+            GPIO.output(self.Inb, HIGH)
+        elif elec_stat == Backward:
+            GPIO.output(self.Ina, HIGH)
+            GPIO.output(self.Inb, LOW)
+        elif elec_stat == Stop:
+            GPIO.output(self.Ina, LOW)
+            GPIO.output(self.Inb, LOW)
 
-def setPinConfig(EN, INA, INB):
-        GPIO.setup(EN, GPIO.OUT)
-        GPIO.setup(INA, GPIO.OUT)
-        GPIO.setup(INB, GPIO.OUT)
-        pwm = GPIO.PWM(EN, 100)
-        pwm.start(0)
-        return pwm
+Left_track = Motor(32, 38, 26)
+Right_track = Motor(33, 37, 35)
+turret_rotation = Motor(24, 16, 22)
+gun_tilt = Motor(19, 21, 23)
+gun_reload = Motor(27, 29, 31)
 
-def setMotorControl(pwm, INA, INB, speed, stat):
-        pwm.ChangeDutyCycle(speed)
+Left_track.setMotor(50, Forward)
+Right_track.setMotor(50, Forward)
 
+<<<<<<< HEAD
         if stat == Forward:
                 GPIO.output(INA, LOW)
                 GPIO.output(INB, HIGH)
@@ -87,3 +100,6 @@ def keymap(screen):
 curses.wrapper(keymap)
 
 GPIO.cleanup() 
+=======
+GPIO.cleanup()
+>>>>>>> add_class
