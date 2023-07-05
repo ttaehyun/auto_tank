@@ -47,7 +47,7 @@ gun_reload = Motor(27, 29, 31)
 try:
     while True:
         Left_track.setMotor(50, Forward)
-        Right_track.setMotor(50, Forward)
+        Right_track.setMotor(10, Forward)
 except KeyboardInterrupt:
     print("\n ctrl c 입력")
 
