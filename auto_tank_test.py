@@ -38,7 +38,7 @@ class Motor():
             GPIO.output(self.Ina, LOW)
             GPIO.output(self.Inb, LOW)
 
-Left_track = Motor(32, 38, 26)
+Left_track = Motor(32, 38, 36)
 Right_track = Motor(33, 37, 35)
 turret_rotation = Motor(24, 16, 22)
 gun_tilt = Motor(19, 21, 23)
