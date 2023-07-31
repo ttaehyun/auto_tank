@@ -129,13 +129,18 @@ def keymap(screen):
                         elif key == 114:
                                 setMotor(CH5, 50, Forward)
                                 print("장전키")
-                        else:
-                                setMotor(CH1, 0, Stop)
-                                setMotor(CH2, 0, Stop)
-                                setMotor(CH3, 0, Stop)
-                                setMotor(CH4, 0, Stop)
-                                setMotor(CH5, 0, Stop)
-                                print("else 실행")
+                        # else:
+                        #         setMotor(CH1, 0, Stop)
+                        #         setMotor(CH2, 0, Stop)
+                        #         setMotor(CH3, 0, Stop)
+                        #         setMotor(CH4, 0, Stop)
+                        #         setMotor(CH5, 0, Stop)
+                        #         print("else 실행")
+                        setMotor(CH1, 0, Stop)
+                        setMotor(CH2, 0, Stop)
+                        setMotor(CH3, 0, Stop)
+                        setMotor(CH4, 0, Stop)
+                        setMotor(CH5, 0, Stop)
                         print("if문 빠져나옴")
                         print(key)
                         #key = ""
