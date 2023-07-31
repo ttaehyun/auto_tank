@@ -99,29 +99,39 @@ def keymap(screen):
                         if key == curses.KEY_UP:
                                 setMotor(CH1, 100, Forward)
                                 setMotor(CH2, 100, Forward)
+                                print("윗키")
                         elif key == curses.KEY_DOWN:
                                 setMotor(CH1, 100, Reverse)
                                 setMotor(CH2, 100, Reverse)
+                                print("아랫키")
                         elif key == curses.KEY_LEFT:
                                 setMotor(CH1, 50, Forward)
                                 setMotor(CH2, 50, Reverse)
+                                print("왼쪽키")
                         elif key == curses.KEY_RIGHT:
                                 setMotor(CH1, 50, Reverse)
                                 setMotor(CH2, 50, Forward)
+                                print("오른쪽키")
                         elif key == curses.KEY_HOME:
                                 setMotor(CH4, 50, Forward)
+                                print("ch41키")
                         elif key == curses.KEY_END:
                                 setMotor(CH4, 50, Reverse)
+                                print("ch42키")
                         elif key == curses.KEY_F9:
                                 setMotor(CH3, 50, Forward)
+                                print("ch31키")
                         elif key == curses.KEY_F10:
                                 setMotor(CH3, 50, Reverse)
+                                print("ch32키")
                         elif key == curses.KEY_F11:
                                 setMotor(CH5, 50, Forward)
+                                print("ch5키")
                         else:
                                 setMotor(CH1, 0, Stop)
                                 setMotor(CH2, 0, Stop)
-                        key = ""
+                        print("if문 빠져나옴")
+                        #key = ""
                         #screen.refresh()
         except KeyboardInterrupt:
                 print("\nCtrl c 중지")
