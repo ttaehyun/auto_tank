@@ -95,6 +95,7 @@ def keymap(screen):
                         
                         # setMotor(CH1, 0, Forward)
                         # setMotor(CH2, 0, Forward)
+                        screen.nodelay(True)
                         key = screen.getch()
                         #key 값이 입력이 없으면 계속 위 코드에서 정지해서 밑에게 실행이 안된거임
                         # 0으로 반환하는 그런걸 찾아야할듯
@@ -129,18 +130,14 @@ def keymap(screen):
                         elif key == 114:
                                 setMotor(CH5, 50, Forward)
                                 print("장전키")
-                        # else:
-                        #         setMotor(CH1, 0, Stop)
-                        #         setMotor(CH2, 0, Stop)
-                        #         setMotor(CH3, 0, Stop)
-                        #         setMotor(CH4, 0, Stop)
-                        #         setMotor(CH5, 0, Stop)
-                        #         print("else 실행")
-                        setMotor(CH1, 0, Stop)
-                        setMotor(CH2, 0, Stop)
-                        setMotor(CH3, 0, Stop)
-                        setMotor(CH4, 0, Stop)
-                        setMotor(CH5, 0, Stop)
+                        else:
+                                setMotor(CH1, 0, Stop)
+                                setMotor(CH2, 0, Stop)
+                                setMotor(CH3, 0, Stop)
+                                setMotor(CH4, 0, Stop)
+                                setMotor(CH5, 0, Stop)
+                                print("else 실행")
+                        
                         print("if문 빠져나옴")
                         print(key)
                         #key = ""
