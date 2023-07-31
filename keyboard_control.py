@@ -99,6 +99,7 @@ def keymap(screen):
                         if key == curses.KEY_UP:
                                 setMotor(CH1, 100, Forward)
                                 setMotor(CH2, 100, Forward)
+                                key = 0
                                 print("윗키")
                         elif key == curses.KEY_DOWN:
                                 setMotor(CH1, 100, Reverse)
