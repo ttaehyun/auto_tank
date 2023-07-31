@@ -50,7 +50,7 @@ def keymap(screen):
 	try:
 		while True :
 
-			curses.halfdelay(5)
+			curses.halfdelay(2)
 			key = screen.getch()
 			#key 값이 입력이 없으면 계속 위 코드에서 정지해서 밑에게 실행이 안된거임
 			# 0으로 반환하는 그런걸 찾아야할듯
