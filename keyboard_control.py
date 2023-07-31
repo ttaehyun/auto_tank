@@ -114,24 +114,27 @@ def keymap(screen):
                                 setMotor(CH1, 50, Reverse)
                                 setMotor(CH2, 50, Forward)
                                 print("오른쪽키")
-                        elif key == curses.KEY_HOME:
+                        elif key == 119:
                                 setMotor(CH4, 50, Forward)
-                                print("ch41키")
-                        elif key == curses.KEY_END:
+                                print("주포 윗키")
+                        elif key == 115:
                                 setMotor(CH4, 50, Reverse)
-                                print("ch42키")
-                        elif key == curses.KEY_F9:
+                                print("주포 아랫키")
+                        elif key == 97:
                                 setMotor(CH3, 50, Forward)
-                                print("ch31키")
-                        elif key == curses.KEY_F10:
+                                print("포탑 왼쪽회전")
+                        elif key == 100:
                                 setMotor(CH3, 50, Reverse)
-                                print("ch32키")
-                        elif key == curses.KEY_F11:
+                                print("포탑 오른쪽회전")
+                        elif key == 114:
                                 setMotor(CH5, 50, Forward)
-                                print("ch5키")
+                                print("장전키")
                         else:
                                 setMotor(CH1, 0, Stop)
                                 setMotor(CH2, 0, Stop)
+                                setMotor(CH3, 0, Stop)
+                                setMotor(CH4, 0, Stop)
+                                setMotor(CH5, 0, Stop)
                                 print("else 실행")
                         print("if문 빠져나옴")
                         print(key)
