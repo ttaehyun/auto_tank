@@ -95,11 +95,13 @@ def keymap(screen):
                         
                         # setMotor(CH1, 0, Forward)
                         # setMotor(CH2, 0, Forward)
+                        print(key)
                         key = screen.getch()
+                        #key 값이 입력이 없으면 계속 위 코드에서 정지해서 밑에게 실행이 안된거임
+                        # 0으로 반환하는 그런걸 찾아야할듯
                         if key == curses.KEY_UP:
                                 setMotor(CH1, 100, Forward)
                                 setMotor(CH2, 100, Forward)
-                                key = 0
                                 print("윗키")
                         elif key == curses.KEY_DOWN:
                                 setMotor(CH1, 100, Reverse)
