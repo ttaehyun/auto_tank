@@ -132,7 +132,7 @@ def keymap(screen):
                                 setMotor(CH2, 0, Stop)
                         print("if문 빠져나옴")
                         #key = ""
-                        #screen.refresh()
+                        screen.refresh()
         except KeyboardInterrupt:
                 print("\nCtrl c 중지")
 
