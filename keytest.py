@@ -40,7 +40,7 @@ class Motor():
 
 Left_track = Motor(32, 38, 36)
 Right_track = Motor(33, 37, 35)
-turret_rotation = Motor(24, 16, 22)
+turret_rotation = Motor(24, 16, 22) 
 gun_tilt = Motor(19, 21, 23)
 gun_reload = Motor(27, 29, 31)
 
@@ -74,10 +74,10 @@ def keymap(screen):
 				gun_tilt.setMotor(60, Backward)
 			elif key == 97:
 				#포탑 왼쪽회전
-				turret_rotation.setMotor(50, Forward)
+				turret_rotation.setMotor(100, Forward)
 			elif key == 100:
 				#포탑 오른쪽회전
-				turret_rotation.setMotor(50, Backward)
+				turret_rotation.setMotor(100, Backward)
 			elif key == 114:
 				#장전
 				gun_reload.setMotor(100, Forward)
