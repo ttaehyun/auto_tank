@@ -92,7 +92,7 @@ def keymap(screen):
         screen.refresh()
         try:
                 while True:
-                        key = ""
+                        
                         # setMotor(CH1, 0, Forward)
                         # setMotor(CH2, 0, Forward)
                         key = screen.getch()
@@ -121,7 +121,8 @@ def keymap(screen):
                         else:
                                 setMotor(CH1, 0, Stop)
                                 setMotor(CH2, 0, Stop)
-                        screen.refresh()
+                        key = ""
+                        #screen.refresh()
         except KeyboardInterrupt:
                 print("\nCtrl c 중지")
 
