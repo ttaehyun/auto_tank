@@ -130,7 +130,9 @@ def keymap(screen):
                         else:
                                 setMotor(CH1, 0, Stop)
                                 setMotor(CH2, 0, Stop)
+                                print("else 실행")
                         print("if문 빠져나옴")
+                        print(key)
                         #key = ""
                         screen.refresh()
         except KeyboardInterrupt:
