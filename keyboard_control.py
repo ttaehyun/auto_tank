@@ -92,8 +92,9 @@ def keymap(screen):
         screen.refresh()
         try:
                 while True:
-                        setMotor(CH1, 0, Forward)
-                        setMotor(CH2, 0, Forward)
+                        key = ""
+                        # setMotor(CH1, 0, Forward)
+                        # setMotor(CH2, 0, Forward)
                         key = screen.getch()
                         if key == curses.KEY_UP:
                                 setMotor(CH1, 100, Forward)
@@ -117,9 +118,9 @@ def keymap(screen):
                                 setMotor(CH3, 50, Reverse)
                         elif key == curses.KEY_F11:
                                 setMotor(CH5, 50, Forward)
-                        # else:
-                        #         setMotor(CH1, 0, Stop)
-                        #         setMotor(CH2, 0, Stop)
+                        else:
+                                setMotor(CH1, 0, Stop)
+                                setMotor(CH2, 0, Stop)
                         screen.refresh()
         except KeyboardInterrupt:
                 print("\nCtrl c 중지")
