@@ -122,13 +122,13 @@ def keymap(screen):
                                 setMotor(CH4, 50, Reverse)
                                 print("주포 아랫키")
                         elif key == 97:
-                                setMotor(CH3, 50, Forward)
+                                setMotor(CH3, 60, Forward)
                                 print("포탑 왼쪽회전")
                         elif key == 100:
-                                setMotor(CH3, 50, Reverse)
+                                setMotor(CH3, 60, Reverse)
                                 print("포탑 오른쪽회전")
                         elif key == 114:
-                                setMotor(CH5, 50, Forward)
+                                setMotor(CH5, 70, Forward)
                                 print("장전키")
                         else:
                                 setMotor(CH1, 0, Stop)
